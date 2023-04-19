@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/upload.css">
+    <link rel="stylesheet" type="text/css" href="/css/signup.css">
+    <title>Home</title>
+</head>
+<body>
+    <nav id="navigation">
+
+        <div>
+            <h1 id="logo"><a href="/routes/">PlagChecker</a></h1>
+        </div>
+   
+        
+        <div id="links">
+   
+           <ul>
+            <li> WELCOME </li>
+               <li> <a href="/users/login">SIGN IN </a></li>
+            </ul>
+            </div>
+       
+            <button id="signUpbutton"><a href="/users/login">SIGN UP</a></button>
+   
+       </nav>
+
+    <!---main content-->
+
+    <main>
+
+     <header>
+
+        <div id="textContent">
+            <h1>Plagchecker: Your Ultimate Tool for Original Writing</h1>
+            <p>Plagchecker is a powerful app that helps you ensure originality in your writing. With its advanced technology, the app quickly detects any instances of plagiarism, enabling you to make necessary revisions and submit work with confidence.
+             Use Plagchecker to ensure academic integrity and produce original, high-quality writing.</p>
+      
+        </div>
+
+        <div id="imageDiv">
+         <img src="/images/plagiarism.png" id="pic">
+        </div>
+     </header>
+
+
+
+     <div id="textFormDiv">
+
+        <form action="/routes/check_text" method="POST" id="textForm" >
+            <h1> Input Your Text Here</h1>
+        <input type= "text" name="title" placeholder="Title...." id="titleBar" />
+        <textarea type="text" name="textbox" placeholder="Your Text..." id="textBar">
+            </textarea>
+        <button type="Submit" class="buttons">Upload Text</button>
+
+    </form>
+
+     </div>
+
+   
+
+     <div id="allFiles">
+
+        <h1> Submitted Files</h1>
+
+        <div id="fileResults">
+            <% if (allFiles.length > 0){ %>     
+                <% allFiles.forEach( eachFile => { %>
+                    <div class="eachResult">
+                <h5><%= eachFile.title %></h5>
+                <button id="deleteButton"><a href= "/routes/deleteText/<%= eachFile.id %>">Delete</a></button>
+                </div>
+                
+                <% }) %>
+                
+                <% }%>
+                
+
+        </div>
+
+     </div>
+
+
+        
+    </main>
+
+    <footer>
+       
+        <div>
+            <h1 id="logo">PlagChecker</h1>
+              </div>
+         
+          
+              
+              <div id="links">
+         
+              <ul>
+                 <li> <a href="">NIGHT MODE </a> </li>
+                 <li> <a href="">SIGN IN </a></li>
+              
+              </ul>
+              
+              </div>
+              <button id="footerButton">SIGN UP</button>
+       
+        
+      </footer>
+      
+    
+</body>
+</html>
